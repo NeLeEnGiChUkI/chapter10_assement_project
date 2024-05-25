@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+  {% block content %}
+    <h1>Login Form</h1>
+    <p>
+      To Login,you will have to write your username and password
+    </p>
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Empty column -->
+      </div>
+      <div class="col-md-4">
+        <form action="" method="post" novalidate>
+          {{ form.hidden_tag() }}
+          <p>
+            {{ form.username.label }} <br>
+            {{ form.username(size=32) }} <br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">
+              {{error}}
+            </span>
+            {% endfor %}
+          </p>
+          <p>
+            {{ form.password.label }} <br>
+            {{ form.password(size=32) }} <br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">
+              {{error}}
+            </span>
+            {% endfor %}
+          </p>
+          <p>
+            {{ form.remember_me() }} {{ form.remember_me.label }}
+          </p>
+          <p>
+            {{ form.submit() }}
+          </p>
+        </form>
+        <p>
+          New here? <a href="{{ url_for('register') }}">Register</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <!-- Empty column -->
+      </div>
+    </div>
+{% endblock %}
